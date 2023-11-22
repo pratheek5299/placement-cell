@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  background-color: lightblue;
+}
+
+body #home-container {
+  padding: 10px;
+}
