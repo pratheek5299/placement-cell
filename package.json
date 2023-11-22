@@ -1,0 +1,23 @@
+{
+  "name": "placement-cell",
+  "version": "1.0.0",
+  "description": "Placement cell (skill test 1)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratheek5299/placement-cell.git"
+  },
+  "author": "Pratheek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratheek5299/placement-cell/issues"
+  },
+  "homepage": "https://github.com/pratheek5299/placement-cell#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^21.1.0"
+  }
+}
