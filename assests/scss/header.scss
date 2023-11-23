@@ -1,8 +1,18 @@
 header{
-    background-color: gray;
+    background-color: green;
     color: white;
     height: 50px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 6px;
+    #header-links{
+        width: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
 }

@@ -1,6 +1,14 @@
 body{
     margin: 0;
-    background-color: lavenderblush;
+    background-color: #bcf9ff;
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            text-align: center;
+        }
+    }
     #home-container{
         padding: 10px;
     }

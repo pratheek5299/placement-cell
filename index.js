@@ -5,7 +5,9 @@ const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const sassMiddleware = require('node-sass-middleware');
+const cookieParser = require('cookie-parser');
 
+app.use(cookieParser());
 app.use(sassMiddleware({
     src: './assests/scss',
     dest: './assests/css',
@@ -17,6 +19,9 @@ app.use(express.static('./assests'));
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
+
+//used to read data in post request
+app.use(express.urlencoded());
 
 //set up a view engine
 app.set('view engine', 'ejs');
