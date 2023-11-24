@@ -1,20 +1,23 @@
 header {
-  background-color: green;
-  color: white;
+  background-color: black;
+  color: cyan;
   height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 6px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 
 header #header-links {
-  width: 200px;
+  width: 280px;
   display: flex;
   justify-content: space-evenly;
 }
 
 header #header-links a {
-  color: white;
+  color: #a5ffff;
   text-decoration: none;
 }

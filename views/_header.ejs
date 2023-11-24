@@ -1,7 +1,12 @@
 <header>
     <h4>Placement Cell</h4>
     <div id="header-links">
-        <a href="/users/sign-in">Sign In</a>
-        <a href="/users/sign-up">Sign Up</a>
+        <%if (locals.user){%>
+            <a>Username: <%=user.name%> </a>
+            <a href="/users/sign-out">Sign Out</a>
+        <%}else{ %>
+            <a href="/users/sign-in">Sign In</a>
+            <a href="/users/sign-up">Sign Up</a>
+        <%}%>
     </div>
 </header>
