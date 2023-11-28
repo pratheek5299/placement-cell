@@ -1,0 +1,41 @@
+#student-profile{
+    background-color: white;
+    width: 550px;
+    border-radius: 10px;
+    margin-bottom: 80px;
+    text-align: start;
+    padding: 10px;
+    ul{
+        list-style-type: none;
+        padding-left: 0px;
+        padding-right: 10px;
+        li{
+            details {
+                width: 100%;
+                padding-left: 10px;
+                cursor: pointer;
+                form{
+                    width: 100%;
+                    input{
+                        width: 100%;
+                    }
+                    select{
+                        width: 100%;
+                    }
+                }
+                #student-list{
+                    list-style-type: disc;
+                    padding-left: 20px;
+                    .single-student-data{
+                        border: 1px solid grey;
+                        border-radius: 5px;
+                        padding: 10px;
+                        margin: 10px;
+                    }
+                }
+            }
+            
+        }
+    }
+    
+}

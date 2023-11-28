@@ -1,0 +1,11 @@
+<%for (let student of students_list){%>
+    <li class="single-student-data">
+        <p><b>Student Name:</b> <%= student.name %></p>
+        <p><b>Student College:</b> <%= student.college %></p>
+        <p><b>Student Batch:</b> <%= student.batch %></p>
+        <p><b>Student Placement Status:</b> <%= student.status%></p>
+        <p><b>Student Interview Company:</b> <%= student.company %></p>
+        <p><b>Student Interview Date:</b> <%= student.date %></p>
+        <p><b>Student Interview Result:</b> <%= student.result %></p>
+    </li>
+<%}%>

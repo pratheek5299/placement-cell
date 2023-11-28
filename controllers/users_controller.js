@@ -1,9 +1,16 @@
 const User = require('../models/user');
+const Students = require('../models/student');
 
-module.exports.studentProfile = function(req, res){
-    return res.render('student_profile',{
-        title: 'Placement Cell | Student profiles'
-    })
+module.exports.studentProfile = async function(req, res){
+    try{
+        let students = await Students.find({});
+        return res.render('student_profile',{
+            title: 'Placement Cell | Student profiles',
+            students_list: students
+        })
+    }catch(err){
+        console.log('Error in getting student data from the database', err);
+    }
 }
 
 //render sign in page
@@ -55,5 +62,19 @@ module.exports.destroySession = function(req, res, next){
         }
         return res.redirect('/')
     });// passport give the function
-    
+   
+}
+
+module.exports.saveStudentData = async function(req, res){
+    if(req.isAuthenticated()){
+        try{
+            let student = await Students.create(req.body);
+            return res.redirect('back');
+        }catch(err){
+            console.log('Error in storing the student data', err);
+        }
+    }
+    return res.render('user_sign_in',{
+        title: 'Employee | Sign In'
+    });
 }

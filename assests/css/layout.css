@@ -2,9 +2,11 @@ body {
   margin: 0;
   background-image: linear-gradient(to bottom right, cyan, #bfbfbf);
   padding-top: 100px;
+  background-attachment: scroll;
 }
 
 body main {
+  overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +16,30 @@ body main div {
   text-align: center;
 }
 
+body main::-webkit-scrollbar {
+  display: none;
+}
+
 body #home-container {
   padding: 10px;
+}
+
+body #home-container a {
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 2px;
 }

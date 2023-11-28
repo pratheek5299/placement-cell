@@ -8,6 +8,7 @@ router.get('/sign-in', usersController.signIn);
 router.get('/sign-up', usersController.signUp);
 router.post('/create', usersController.create);
 router.get('/sign-out', usersController.destroySession);
+router.post('/enter-student-details', usersController.saveStudentData);
 //use passport as a middle ware to authenticate
 router.post('/create-session',passport.authenticate(
     'local',
