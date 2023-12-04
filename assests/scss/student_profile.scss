@@ -11,6 +11,7 @@
         padding-right: 10px;
         li{
             details {
+                transition: all 1s ease-in-out;
                 width: 100%;
                 padding-left: 10px;
                 cursor: pointer;

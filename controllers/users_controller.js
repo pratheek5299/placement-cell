@@ -1,9 +1,11 @@
 const User = require('../models/user');
 const Students = require('../models/student');
+const Companies = require('../models/companies');
 
 module.exports.studentProfile = async function(req, res){
     try{
-        let students = await Students.find({});
+        let students = await Students.find({})
+        .populate('companies')
         return res.render('student_profile',{
             title: 'Placement Cell | Student profiles',
             students_list: students
@@ -77,4 +79,20 @@ module.exports.saveStudentData = async function(req, res){
     return res.render('user_sign_in',{
         title: 'Employee | Sign In'
     });
+}
+
+module.exports.saveCompanyData = async function(req, res){
+    try{
+        let student = await Students.findById(req.body.students);
+
+        if(student){
+            let company = await Companies.create(req.body);
+            student.companies.push(company);
+            student.save();
+            return res.redirect('back');            
+        }
+    }catch(err){
+        console.log(`Error in saving the company data${err}`)
+    }
+    
 }

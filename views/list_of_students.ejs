@@ -1,11 +1,29 @@
-<%for (let student of students_list){%>
-    <li class="single-student-data">
-        <p><b>Student Name:</b> <%= student.name %></p>
-        <p><b>Student College:</b> <%= student.college %></p>
-        <p><b>Student Batch:</b> <%= student.batch %></p>
-        <p><b>Student Placement Status:</b> <%= student.status%></p>
-        <p><b>Student Interview Company:</b> <%= student.company %></p>
-        <p><b>Student Interview Date:</b> <%= student.date %></p>
-        <p><b>Student Interview Result:</b> <%= student.result %></p>
-    </li>
-<%}%>
+<details>
+    <summary>List of Students</summary>
+    <ul id="student-list">
+        <%for (let student of students_list){%>
+            <li class="single-student-data">
+                <p><b>Student Name:</b> <%= student.name %></p>
+                <p><b>Student College:</b> <%= student.college %></p>
+                <p><b>Student Batch:</b> <%= student.batch %></p>
+                <p><b>Student Placement Status:</b> <%= student.status%></p>
+                <%if((student.companies).length != 0 ){%>
+                    <p><b>Placements</b></p>
+                    <ol>
+                        <%for (company of student.companies) {%>
+                            <li>
+                                <p>
+                                    Company Name: <%= company.company %> 
+                                    <br> 
+                                    Interview Date: <%= company.date %>
+                                    <br>
+                                    Interview Result: <%= company.result%>
+                                </p>
+                            </li>
+                        <%}%>
+                    </ol>    
+                <%}%>
+            </li>
+        <%}%>
+    </ul>
+</details>

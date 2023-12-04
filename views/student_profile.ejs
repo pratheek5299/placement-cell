@@ -3,50 +3,13 @@
     <h1>Student Profiles</h1>
     <ul>
         <li>
-            <details>
-                <summary>New Student Details</summary>
-                <p><b>Fill in new student details</b></p>
-                <form action="/users/enter-student-details" method="POST">
-                    <input type="text" name="name" placeholder="Enter student name" required>
-                    <br><br>
-                    <input type="text" name="college" placeholder="Enter student college" required>
-                    <br><br>
-                    <input type="text" name="batch" placeholder="Enter the student batch " required>
-                    <br><br>
-                    <select name="status" id="" required>
-                        <option value="" disabled selected>Placement Status</option>
-                        <option value="placed">Placed</option>
-                        <option value="not_placed">Not Placed</option>
-                    </select>
-                    <br><br>
-                    <p><b>Interviews</b></p>
-                    <p>Enter the student interview details</p>
-                    <input type="text" name="company" placeholder="Enter the company name" required>
-                    <br><br>
-                    <input type="date" name="date" required>
-                    <p><b>Interview Results</b></p>
-                    <select name="result" id="">
-                        <option value="" disabled selected>Select interview result</option>
-                        <option value="Pass">PASS</option>
-                        <option value="Fail">FAIL</option>
-                        <option value="On-hold">On-Hold</option>
-                        <option value="Didnt-attempt">Didn't attempt</option>
-                    </select>
-                    <br><br>
-                    <button type="submit">Submit</button>
-                </form>
-            </details>
-        </li>
-        <br>
-        <hr>
-        <br>
+            <%- include('enter_student_details'); %>
+        </li><br><hr><br>
         <li>
-            <details>
-                <summary>List of Students</summary>
-                <ul id="student-list">
-                    <%- include('list_of_students'); %>
-                </ul>
-            </details>
+            <%- include('list_of_students'); %>    
+        </li><br><hr><br>
+        <li>
+            <%- include('enter_interview_details'); %>
         </li>
     </ul>
 </div>

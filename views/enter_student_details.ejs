@@ -1,0 +1,19 @@
+<details>
+    <summary>New Student Details</summary>
+    <p><b>Fill in new student details</b></p>
+    <form action="/users/enter-student-details" method="POST">
+        <input type="text" name="name" placeholder="Enter student name" required>
+        <br><br>
+        <input type="text" name="college" placeholder="Enter student college" required>
+        <br><br>
+        <input type="text" name="batch" placeholder="Enter the student batch " required>
+        <br><br>
+        <select name="status" id="" required>
+            <option value="" disabled selected>Placement Status</option>
+            <option value="Placed">Placed</option>
+            <option value="Not Placed">Not Placed</option>
+        </select>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</details>

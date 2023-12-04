@@ -17,18 +17,12 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    company: {
-        type: String,
-        requried: true
-    },
-    date: {
-        type: Date,
-        requried: true
-    },
-    result: {
-        type: String,
-        required: true
-    }
+    companies:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Companies'
+        }
+    ]
 },{
     timestamps: true
 });

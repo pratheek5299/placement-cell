@@ -1,0 +1,31 @@
+<details>
+    <summary>New Interview Details</summary>
+    <form action="/users/enter-interview-details" method="POST">
+        <br>
+        <label for="company"> Enter Company Details</label><br>
+        <input type="text" name="company" id="company" placeholder="Enter the company Name" required>
+        <br><br>
+        <label for="date">Select the date of the interview</label><br>
+        <input type="date" id="date" name="date" placeholder="Enter the interview date" required>
+        <br><br>
+        <label for="list-of-students">Select a Student for the interview</label>
+        <select name="students" id="list-of-students">
+            <option value="" disabled selected>Select Student</option>
+            <!-- List of students from db -->
+            <% for (let student of students_list) {%>
+                <option value="<%= student._id%>"><%= student.name%></option>
+            <%}%>
+        </select>
+        <br><br>
+        <p><b>Interview Results</b></p>
+        <select name="result" id="">
+            <option value="" disabled selected>Select interview result</option>
+            <option value="Pass">PASS</option>
+            <option value="Fail">FAIL</option>
+            <option value="On-hold">On-Hold</option>
+            <option value="Didnt-attempt">Didn't attempt</option>
+        </select>
+        <br><br>
+        <button type="submit">Sumbit</button>
+    </form>
+</details>
