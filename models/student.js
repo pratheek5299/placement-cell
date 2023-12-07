@@ -22,7 +22,19 @@ const studentSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Companies'
         }
-    ]
+    ],
+    dsa: {
+        type: String,
+        required: true
+    },
+    webd: {
+        type: String,
+        required: true
+    },
+    react: {
+        type: String,
+        required: true
+    }
 },{
     timestamps: true
 });

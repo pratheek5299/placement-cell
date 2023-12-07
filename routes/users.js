@@ -11,6 +11,7 @@ router.get('/sign-out', usersController.destroySession);
 router.post('/enter-student-details', passport.checkAuthentication, usersController.saveStudentData);
 router.get('/enter-student-details', passport.checkAuthentication, usersController.studentProfile);
 router.post('/enter-interview-details', passport.checkAuthentication, usersController.saveCompanyData);
+router.get('/download-student-data/:id', usersController.downloadCsv);
 //use passport as a middle ware to authenticate
 router.post('/create-session',passport.authenticate(
     'local',

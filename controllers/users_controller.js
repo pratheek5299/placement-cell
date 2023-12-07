@@ -1,7 +1,10 @@
 const User = require('../models/user');
 const Students = require('../models/student');
 const Companies = require('../models/companies');
+const {Parser} = require('@json2csv/plainjs');
+const fs = require('fs');
 
+//show the main page which contains the student data, interview data and the corresponding forms
 module.exports.studentProfile = async function(req, res){
     try{
         let students = await Students.find({})
@@ -53,10 +56,12 @@ module.exports.create = async function(req, res){
    }
 }
 
+//create session
 module.exports.createSession = function(req, res){
     return res.redirect('/users/student-profile')
 }
 
+//sign out of the session
 module.exports.destroySession = function(req, res, next){
     req.logout(function(err){
         if (err){
@@ -67,6 +72,7 @@ module.exports.destroySession = function(req, res, next){
    
 }
 
+//save the student data entered by the employee in the database
 module.exports.saveStudentData = async function(req, res){
     if(req.isAuthenticated()){
         try{
@@ -81,6 +87,7 @@ module.exports.saveStudentData = async function(req, res){
     });
 }
 
+// to save data the interview data into the data base 
 module.exports.saveCompanyData = async function(req, res){
     try{
         let student = await Students.findById(req.body.students);
@@ -93,6 +100,24 @@ module.exports.saveCompanyData = async function(req, res){
         }
     }catch(err){
         console.log(`Error in saving the company data${err}`)
+    } 
+}
+
+//To download the csv file that contains the data from the database
+module.exports.downloadCsv = async function(req, res){
+    try{
+        let student = await Students.findById(req.params.id).select('-_id -__v ').populate('companies','-_id -__v ');
+        // console.log(student);
+        const fields = ['name', 'college', 'batch', 'status','companies', 'dsa', 'webd', 'react'];
+        const opts = { fields };
+        const parser = new Parser(opts);
+        const csv = parser.parse(student);
+        const filename = student.name + Date.now() + ".csv";
+        // const filepath ="D:\VS Code Backend Projects\6) Placement Cell (Skill Test)\placement-cell\studentFiles" + filename;
+        fs.writeFileSync(filename, csv)
+        return res.download(filename);
+        // return res.redirect('back')
+    }catch(err){
+        console.log(`Error in getting downloading the data in csv format ${err}`);
     }
-    
 }
