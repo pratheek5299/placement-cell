@@ -3,6 +3,7 @@ const Students = require('../models/student');
 const Companies = require('../models/companies');
 const {Parser} = require('@json2csv/plainjs');
 const fs = require('fs');
+const request = require('request');
 
 //show the main page which contains the student data, interview data and the corresponding forms
 module.exports.studentProfile = async function(req, res){
@@ -120,4 +121,26 @@ module.exports.downloadCsv = async function(req, res){
     }catch(err){
         console.log(`Error in getting downloading the data in csv format ${err}`);
     }
+}
+
+
+//external api code
+module.exports.externalApi = function(req, res){
+    
+    const options = {
+        method: 'GET',
+        url: 'https://remote-jobs-api.p.rapidapi.com/jobs',
+        qs: {company: 'shopify'},
+        headers: {
+        'X-RapidAPI-Key': '3920685daemsh040d25d3e815f76p178171jsn2b01d96b31b7',
+        'X-RapidAPI-Host': 'remote-jobs-api.p.rapidapi.com'
+        }
+    };
+    
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        
+            res.write(JSON.stringify(body));
+            res.end();
+    });
 }

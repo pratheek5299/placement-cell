@@ -12,6 +12,7 @@ router.post('/enter-student-details', passport.checkAuthentication, usersControl
 router.get('/enter-student-details', passport.checkAuthentication, usersController.studentProfile);
 router.post('/enter-interview-details', passport.checkAuthentication, usersController.saveCompanyData);
 router.get('/download-student-data/:id', usersController.downloadCsv);
+router.get('/external-api', usersController.externalApi);
 //use passport as a middle ware to authenticate
 router.post('/create-session',passport.authenticate(
     'local',
